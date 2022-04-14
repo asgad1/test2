@@ -12,6 +12,6 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           files: "src/**"
           ignore: "src/some-file-to-ignore.js"
-          extensions: ".js"
+          extensions: ".html"
           working-directory: "./my-package"
           quiet: "false"
