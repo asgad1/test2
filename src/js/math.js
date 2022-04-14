@@ -111,6 +111,7 @@ const config = {
 };
 
 function chart() {
+  // eslint-disable-next-line no-undef
   const myChart = new Chart(document.getElementById("myChart"), config);
 }
 
@@ -120,7 +121,7 @@ function all() {
   const str = [
     "You can transform a room with minimal effort.liza Blank founded The Sill in 2012. Passionate about plants, she wanted to help demystify them, make them accessible to non-horticulturists and elevate the experience beyond the local garden supply center. She broke new ground with an online plant delivery business that has grown to include stores in New York City, Los Angeles, San Francisco, and Chicago. Hands-on educational workshops are now hosted in-store and online, and the brand vision has expanded beyond plants to include biophilic design that evokes an essential connection to the natural world. As Eliza says, “Plants create time and space to nurture yourself. If you’re not making time for them, you’re probably not making time for yourself either.” The Sill is here to help you connect to plants and nature, so you can cultivate a life well-lived..",
   ];
-
+  // eslint-disable-next-line no-undef
   let typedd = new Typed(".auto-input2", {
     strings: str,
     typeSpeed: speedoftype,
@@ -165,7 +166,7 @@ function timefour() {
 function function4() {
   const four = (document.getElementById("four").style.display = "inline");
 }
-
+// eslint-disable-next-line no-undef
 module.exports = {
   numberSelling,
   mathNumRashHour,

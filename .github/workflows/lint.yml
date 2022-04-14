@@ -1,37 +1,21 @@
-name: Lint
-
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
   push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
 
 jobs:
-  run-linters:
-    name: Run linters
+  eslint:
+    name: eslint
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
+      - uses: actions/checkout@v1
+      - name: install node v12
         uses: actions/setup-node@v1
         with:
           node-version: 12
-
-      - name: src/__test__/amna.test.js
-        run: npm test
-
-      # ESLint and Prettier must be in `package.json`
-      - name: Install Node.js dependencies
-        run: npm ci
-
-      - name: Run linters
-        uses: wearerequired/lint-action@v1
+      - name: yarn install
+        run: yarn install
+      - name: eslint
+        uses: icrawl/action-eslint@v1
         with:
-          eslint: true
+          custom-glob: src/ # only if a different glob is needed, default: src
+
