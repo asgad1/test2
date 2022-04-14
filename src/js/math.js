@@ -2,7 +2,7 @@ function mathSelling() {
   const today = [23, 56, 23, 56, 1, 96, 23, 154, 67];
   const yesday = [23, 56, 23, 56, 24, 33, 89, 35];
   const [yes, to] = numberSelling(yesday, today);
-
+  //
   // document.getElementsByClassName('progress').style.display = 'inline';
   // document.querySelectorAll("progress").forEach(a=>a.style.display = "initial");
   document.getElementById("today").innerHTML = to + " Plants Sold This Week";
