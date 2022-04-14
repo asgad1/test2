@@ -1,17 +1,20 @@
-name: Example Workflow
-
-on: push
+on:
+  push:
+  pull_request:
 
 jobs:
-  lint:
+  eslint:
+    name: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: a-b-r-o-w-n/eslint-action@v2
+      - name: install node v12
+        uses: actions/setup-node@v1
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          files: "src/**"
-          ignore: "src/some-file-to-ignore.js"
-          extensions: ".html"
-          working-directory: "./my-package"
-          quiet: "false"
+          node-version: 12
+      - name: yarn install
+        run: yarn install
+      - name: eslint
+        uses: icrawl/action-eslint@v1
+        with:
+          custom-glob: apps # only if a different glob is needed, default: src
