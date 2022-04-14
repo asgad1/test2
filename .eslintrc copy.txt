@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "no-unused-vars": 0
+  },
+  "plugins": ["html"]
+}
