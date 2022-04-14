@@ -10,14 +10,14 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: 16
       - run: npm ci # or yarn install
-      - uses: sibiraj-s/action-eslint@v1
+      - uses: sibiraj-s/action-eslint@v2
         with:
-          extensions: "js, jsx, ts, tsx"
+          github-token: ${{ secrets.GITHUB_TOKEN }} # Optional
+          eslint-args: "--ignore-path=.gitignore --quiet"
+          extensions: "js,jsx,ts,tsx"
           annotations: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
