@@ -1,21 +1,11 @@
-eslint:
-  image: node:8.9.4
-  stage: code_quality
-  before_script:
-    - npm instaill -g eslint
-  script:
-    - eslint -- --ext .jsx,.js src/
-unit_tests:
-  image: node:8.9.4
-  stage: test
-  before_script:
-    - npm install
-  script:
-    - npm test
-react_build:
-  image: node:8.9.4
-  stage: build
-  before_script:
-    - npm install
-  script:
-    - npm run-script build
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Run ESLint
+        run: eslint . --ext .js,.jsx,.ts,.tsx
