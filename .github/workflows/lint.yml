@@ -18,3 +18,4 @@ jobs:
         uses: icrawl/action-eslint@v1
         with:
           custom-glob: src/js/math.js # only if a different glob is needed, default: src
+          annotations: false
