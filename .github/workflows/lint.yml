@@ -9,6 +9,9 @@ jobs:
       - uses: actions/checkout@v1
       - uses: eslint-action@v2
         with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
           files: "src/**"
+          ignore: "src/some-file-to-ignore.js"
           extensions: ".js"
+          working-directory: "./my-package"
           quiet: "false"
