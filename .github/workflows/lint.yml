@@ -1,12 +1,21 @@
-name: Lint
-
-on: [push]
-
-jobs:
-  eslint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
-        with:
-          files: src/
+eslint:
+  image: node:8.9.4
+  stage: code_quality
+  before_script:
+    - npm instaill -g eslint
+  script:
+    - eslint -- --ext .jsx,.js src/
+unit_tests:
+  image: node:8.9.4
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - npm test
+react_build:
+  image: node:8.9.4
+  stage: build
+  before_script:
+    - npm install
+  script:
+    - npm run-script build
